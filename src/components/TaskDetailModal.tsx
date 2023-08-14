@@ -18,7 +18,7 @@ const TaskDetailModal: React.FC<TaskDetailProps> = ({ show, setShowModal, task }
     });
 
     const [comments, setComments] = useState([])
-    const fetchNewComment = () => fetch('http://localhost:5001/comment/getTaskComment',{
+    const fetchNewComment = () => fetch('http://'+process.env.REACT_APP_API_HOST+'/comment/getTaskComment',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ const TaskDetailModal: React.FC<TaskDetailProps> = ({ show, setShowModal, task }
 
     const handleModTaskSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        fetch('http://localhost:5001/task/modTask',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/task/modTask',{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ const TaskDetailModal: React.FC<TaskDetailProps> = ({ show, setShowModal, task }
 
     const handleTaskDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        fetch('http://localhost:5001/task/deleteTask',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/task/deleteTask',{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const TaskDetailModal: React.FC<TaskDetailProps> = ({ show, setShowModal, task }
 
     const handleTaskCompleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        fetch('http://localhost:5001/task/modTaskComplete',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/task/modTaskComplete',{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

@@ -14,7 +14,7 @@ function App() {
   const [tasks, setTasks] = useState<Array<Task>>([])
   const [showSearchBar, setShowSearchBar] = useState(false)
 
-  const fetchTask = () => fetch('http://localhost:5001/task/getFilterTask',{
+  const fetchTask = () => fetch('http://'+process.env.REACT_APP_API_HOST+'/task/getFilterTask',{
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'

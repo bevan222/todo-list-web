@@ -14,7 +14,7 @@ const TodoItem: React.FC<TodoItemProps> = ({task, sortOption, fetchTask}) => {
 
     const handleTaskCompleteClick = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
-        fetch('http://localhost:5001/task/modTaskComplete',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/task/modTaskComplete',{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

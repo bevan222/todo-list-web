@@ -12,7 +12,7 @@ const CommentItem: React.FC<CommentItemProps> = ({comment, fetchNewComment}) => 
 
     const handleCommentDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        fetch('http://localhost:5001/comment/deleteComment',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/comment/deleteComment',{
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ const CommentItem: React.FC<CommentItemProps> = ({comment, fetchNewComment}) => 
 
     const handleModMessageSubmitClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        fetch('http://localhost:5001/comment/modComment',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/comment/modComment',{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

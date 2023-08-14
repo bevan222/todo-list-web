@@ -14,7 +14,7 @@ const NewComment: React.FC<NewCommentProps>  = ({taskId, fetchNewComment}) => {
     const [creatorSelect, setCreatorSelect] = useState<{value:number, label:string}>()
 
     useEffect(() => {
-        fetch('http://localhost:5001/user/getAllUser')
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/user/getAllUser')
         .then(res => res.json())
         .then((data) => {
             const userOptions = data.users.map((user:{id:number, username: string})=>{
@@ -35,7 +35,7 @@ const NewComment: React.FC<NewCommentProps>  = ({taskId, fetchNewComment}) => {
             return
         }
         
-        fetch('http://localhost:5001/comment/createComment',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/comment/createComment',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

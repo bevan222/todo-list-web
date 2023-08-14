@@ -19,7 +19,7 @@ const NewTaskModal: React.FC<NewTaskModalProps> = ({ show, setShowModal }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5001/user/getAllUser')
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/user/getAllUser')
           .then(res => res.json())
           .then((data) => {
             const userOptions = data.users.map((user:{id:number, username: string})=>{
@@ -50,7 +50,7 @@ const NewTaskModal: React.FC<NewTaskModalProps> = ({ show, setShowModal }) => {
             alert('please select a creator')
             return
         }
-        fetch('http://localhost:5001/task/createTask',{
+        fetch('http://'+process.env.REACT_APP_API_HOST+'/task/createTask',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
