@@ -3,6 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## How to set up
+1. set .env file's REACT_APP_API_HOST to api server's IP
 1. npm install //download realted package
 2. npm start //run react 
 
